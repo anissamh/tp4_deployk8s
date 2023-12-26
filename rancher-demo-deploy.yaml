@@ -1,0 +1,24 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: rancher-demo
+    labels:
+      app: rancher-demo
+  spec:
+    selector:
+      matchLabels:
+        app: rancher-demo
+    strategy:
+      type: Recreate
+    replicas: 8
+    template:
+      metadata:
+        labels:
+          app: rancher-demo
+      spec:
+        containers:
+        - image: salahgo/rancher-demo
+          name: new-rancher-demo
+          ports:
+          - containerPort: 8080
+            name: demo-http
