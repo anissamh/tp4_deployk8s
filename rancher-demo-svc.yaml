@@ -9,4 +9,4 @@
       - port: 8080
     selector:
       app: rancher-demo
-    type: NodePort
+    type: LoadBalancer
